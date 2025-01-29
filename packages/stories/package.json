@@ -7,8 +7,8 @@
     "license": "MIT",
     "scripts": {
         "clean": "rimraf ../docs lib",
-        "docs": "build-storybook -c .storybook -o ../../docs",
-        "start": "start-storybook -p 4444"
+        "docs": "storybook build -c .storybook -o ../../docs",
+        "start": "storybook dev -p 4444 babelrc"
     },
     "dependencies": {
         "d3-dsv": "^2.0.0",
@@ -17,5 +17,12 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-financial-charts": "file:../charts"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.26.7",
+        "@babel/preset-react": "^7.26.3",
+        "@babel/preset-typescript": "^7.26.0",
+        "@chromatic-com/storybook": "^3.2.4",
+        "@storybook/addon-webpack5-compiler-babel": "^3.0.5"
     }
 }
