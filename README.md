@@ -1,5 +1,10 @@
 # React Financial Charts
 
+A fork for React Financial Charts with updated React and TS versions.
+
+By - Prateek Chachra
+
+
 > **Note:** this repo is a fork of [react-stockcharts](https://github.com/rrag/react-stockcharts), renamed, converted to typescript and bug fixes applied due to the original project being unmaintained.
 
 > **Note:** v1 is a fully breaking change with large parts, if not all, rewritten. Do not expect the same API! although the same features should exist.
