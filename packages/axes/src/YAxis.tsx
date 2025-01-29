@@ -95,7 +95,7 @@ export class YAxis extends React.Component<YAxisProps> {
     }
 
     private readonly axisZoomCallback = (newYDomain: number[]) => {
-        const { chartId, yAxisZoom } = this.context;
+        const { chartId, yAxisZoom } = this.context as any;
 
         yAxisZoom(chartId, newYDomain);
     };
@@ -104,7 +104,7 @@ export class YAxis extends React.Component<YAxisProps> {
         const { axisAt, ticks, yZoomWidth = YAxis.defaultProps.yZoomWidth, orient } = this.props;
         const {
             chartConfig: { width, height },
-        } = this.context;
+        } = this.context as any;
 
         let axisLocation;
         const y = 0;
@@ -133,7 +133,7 @@ export class YAxis extends React.Component<YAxisProps> {
             getScale: this.getYScale,
             bg: { x, y, h, w },
             ticks: ticks ?? this.getYTicks(height),
-            zoomEnabled: this.context.chartConfig.yPan,
+            zoomEnabled: (this.context as any).chartConfig.yPan,
         };
     };
 

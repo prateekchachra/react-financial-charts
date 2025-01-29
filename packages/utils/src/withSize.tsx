@@ -11,7 +11,7 @@ export const withSize = (props?: Omit<AutoSizerProps, "children">) => {
         return class WithSize extends React.Component<Omit<TProps, "width" | "height">> {
             public render() {
                 return (
-                    <AutoSizer {...props}>
+                    <AutoSizer>
                         {({ height, width }) => {
                             return <OriginalComponent {...(this.props as TProps)} height={height} width={width} />;
                         }}

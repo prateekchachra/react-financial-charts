@@ -73,8 +73,8 @@ export class GenericComponent extends React.Component<GenericComponentProps, Gen
     private iSetTheCursorClass = false;
     private readonly subscriberId: number;
 
-    public constructor(props: GenericComponentProps, context: any) {
-        super(props, context);
+    public constructor(props: GenericComponentProps) {
+        super(props);
         this.drawOnCanvas = this.drawOnCanvas.bind(this);
         this.getMoreProps = this.getMoreProps.bind(this);
         this.draw = this.draw.bind(this);
@@ -87,9 +87,9 @@ export class GenericComponent extends React.Component<GenericComponentProps, Gen
         this.shouldTypeProceed = this.shouldTypeProceed.bind(this);
         this.preEvaluate = this.preEvaluate.bind(this);
 
-        const { generateSubscriptionId } = context;
+        const { generateSubscriptionId } = this.context;
 
-        this.subscriberId = generateSubscriptionId();
+        this.subscriberId = generateSubscriptionId?.() ?? 0;
 
         this.state = {
             updateCount: 0,
@@ -323,8 +323,6 @@ export class GenericComponent extends React.Component<GenericComponentProps, Gen
             draw: this.draw,
             getPanConditions: this.getPanConditions,
         });
-
-        this.UNSAFE_componentWillReceiveProps(this.props, this.context);
     }
 
     public componentWillUnmount() {
@@ -359,23 +357,6 @@ export class GenericComponent extends React.Component<GenericComponentProps, Gen
         }
     }
 
-    public UNSAFE_componentWillReceiveProps(nextProps: GenericComponentProps, nextContext: any) {
-        const { xScale, plotData, chartConfig, getMutableState } = nextContext;
-
-        this.moreProps = {
-            ...this.moreProps,
-            ...getMutableState(),
-            /*
-			^ this is so
-			mouseXY, currentCharts, currentItem are available to
-			newly created components like MouseHoverText which
-			is created right after a new interactive object is drawn
-			*/
-            xScale,
-            plotData,
-            chartConfig,
-        };
-    }
 
     public getMoreProps() {
         const { xScale, plotData, chartConfigs, morePropsDecorator, xAccessor, displayXAccessor, width, height } =

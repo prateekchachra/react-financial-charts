@@ -8,8 +8,8 @@ export class GenericChartComponent extends GenericComponent {
     public static defaultProps = GenericComponent.defaultProps;
     public static contextType = ChartContext;
 
-    public constructor(props: any, context: any) {
-        super(props, context);
+    public constructor(props: any) {
+        super(props);
 
         this.preCanvasDraw = this.preCanvasDraw.bind(this);
         this.postCanvasDraw = this.postCanvasDraw.bind(this);

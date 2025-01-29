@@ -120,7 +120,7 @@ export class Cursor extends React.Component<CursorProps> {
 
         const { useXCursorShape } = this.props;
 
-        const { margin, ratio } = this.context;
+        const { margin, ratio } = this.context as any;
 
         const originX = 0.5 * ratio + margin.left;
         const originY = 0.5 * ratio + margin.top;

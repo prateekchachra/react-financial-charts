@@ -97,7 +97,7 @@ export class XAxis<T extends number | Date> extends React.Component<XAxisProps<T
     }
 
     private readonly axisZoomCallback = (newXDomain: number[]) => {
-        const { xAxisZoom } = this.context;
+        const { xAxisZoom } = this.context as any;
 
         xAxisZoom(newXDomain);
     };
@@ -106,7 +106,7 @@ export class XAxis<T extends number | Date> extends React.Component<XAxisProps<T
         const { axisAt, xZoomHeight = XAxis.defaultProps.xZoomHeight, orient, ticks } = this.props;
         const {
             chartConfig: { width, height },
-        } = this.context;
+        } = this.context as any;
 
         let axisLocation;
         const x = 0;

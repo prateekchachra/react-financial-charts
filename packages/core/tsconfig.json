@@ -13,7 +13,9 @@
         "outDir": "lib",
         "sourceMap": true,
         "strict": true,
-        "target": "es2017"
+        "target": "es2017",
+"types": ["react"],
+        "types": ["react"]
     },
     "include": [
         "src"

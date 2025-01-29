@@ -31,7 +31,7 @@ export class ZoomButtons extends React.Component<ZoomButtonsProps> {
     private interval?: number;
 
     public render() {
-        const { chartConfig } = this.context;
+        const { chartConfig } = this.context as any;
 
         const { width, height } = chartConfig;
 
@@ -133,7 +133,7 @@ export class ZoomButtons extends React.Component<ZoomButtonsProps> {
     };
 
     private readonly zoom = (direction: number) => {
-        const { xAxisZoom, xScale, plotData, xAccessor } = this.context;
+        const { xAxisZoom, xScale, plotData, xAccessor } = this.context as any;
 
         const cx = xScale(xAccessor(last(plotData)));
 
